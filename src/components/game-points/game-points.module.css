@@ -1,0 +1,32 @@
+.pointsCounter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1.5rem;
+  color: var(--accent-color3);
+}
+
+.points {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+span {
+  color: var(--accent-color3);
+}
+
+.imgContainer {
+  width: 1.5rem;
+  height: 2rem;
+  position: relative;
+  margin-right: 0.5rem;
+}
+
+.imgContainer img {
+  position: "absolute";
+  width: 100%;
+  max-height: 100%;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,106 @@
+.card {
+    background-color: var(--card-color);
+    width: max-content;
+    border-radius: 1rem;
+
+    &-image {
+        img {
+            border-radius: 1rem 1rem 0 0;
+            width: 100%;
+            object-fit: cover;
+            max-height: max(12rem, 30vh);
+            aspect-ratio: 1/1;
+            // aspect-ratio: auto;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+
+        .card-heading {
+            display: flex;
+            justify-content: space-between;
+
+            .card-series {
+                color: var(--orange);
+                text-transform: uppercase;
+                font-size: 0.7rem
+            }
+
+            .card-top {
+                color: var(--accent-color3);
+                text-transform: uppercase;
+                font-size: 0.7rem;
+            }
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            color: var(--accent-color1);
+            align-items: center;
+
+            .card-price {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
+                // h4 {
+                //     color: var(--green);
+                // }
+            }
+
+            // img {
+            //     filter: brightness(0) invert(0);
+            // }
+
+
+        }
+
+        .card-sub-details {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                color: var(--accent-color3);
+                font-size: 0.9rem;
+            }
+        }
+
+        span{
+            display: flex;
+            justify-content: center;
+        };
+
+        button {
+            color: var(--accent-color1);
+            background-color: transparent;
+            font-weight: bold;
+            padding: 1rem 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+            border: solid 3px transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0)),
+                linear-gradient(101deg, var(--e-global-color-accent), var(--e-global-color-0094cc7));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 2px 1000px 1px var(--e-global-color-secondary) inset;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: none;
+            }
+
+        }
+
+        .buy-visible {
+            display: none;
+        }
+    }
+
+}

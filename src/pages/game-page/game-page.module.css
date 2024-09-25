@@ -1,0 +1,13 @@
+.cardGrid {
+  display: grid;
+  margin: auto;
+  width: 55%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.cardGrid.row5 {
+  width: 65%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
