@@ -18,3 +18,8 @@ Users will be able to support the zoos with donations. Information about these d
 5. Add more games - tetris, tic-tac-toe, sudoku, chess
 6. Exclusive Zookeeper NFT - for most donated users
 
+## Get Started
+
+md
+`npm install --legacy-peer-deps`
+`npm run start`
