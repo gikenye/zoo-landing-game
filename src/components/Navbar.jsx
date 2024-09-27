@@ -9,6 +9,19 @@ import useAccount from "../store/account.store";
 import { Link } from "react-router-dom";
 import PointsCounter from "./points-counter/points-counter";
 
+import { ConnectWallet } from "@thirdweb-dev/react";
+import { Ethereum } from "@thirdweb-dev/chains";
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+  trustWallet,
+  safeWallet,
+} from "@thirdweb-dev/react";
+
+const clientId = process.env.REACT_APP_NEXT_PUBLIC_CLIENT_ID;
+
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
 
@@ -26,7 +39,10 @@ export default function Navbar({ changeTheme, currentTheme }) {
     }
   };
   const accountInfo = () => {
-    window.open(`https://explorer.testnet.near.org/accounts/${accountId}`, "_blank");
+    window.open(
+      `https://explorer.testnet.near.org/accounts/${accountId}`,
+      "_blank"
+    );
   };
 
   return (
@@ -54,6 +70,34 @@ export default function Navbar({ changeTheme, currentTheme }) {
       </div>
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
         <ul className="links">
+          <li></li>
+          <ThirdwebProvider
+            activeChain={Ethereum}
+            supportedChains={[Ethereum]}
+            supportedWallets={[
+              metamaskWallet({
+                recommended: true,
+              }),
+              coinbaseWallet(),
+              walletConnect(),
+              trustWallet(),
+              safeWallet(),
+            ]}
+            clientId={clientId}
+          >
+            <ConnectWallet
+              auth={{
+                loginOptional: false,
+                onLogin(token) {
+                  console.log("user logged in", token);
+                },
+                onLogout() {
+                  console.log("user logged out");
+                },
+              }}
+            />
+            ;
+          </ThirdwebProvider>
           <li>
             <Link
               to={!isWalletConnected ? "#" : "/game"}
@@ -71,7 +115,14 @@ export default function Navbar({ changeTheme, currentTheme }) {
             </Link>
           </li>
           <li>
-            <a href={"https://docs.google.com/document/d/1KaWKzHGUP-Lz8OAdR5Y84IEMTGaUfjCuR3GVB6C384s/edit?usp=sharing"} target={"_blank"}>Litepaper</a>
+            <a
+              href={
+                "https://docs.google.com/document/d/1KaWKzHGUP-Lz8OAdR5Y84IEMTGaUfjCuR3GVB6C384s/edit?usp=sharing"
+              }
+              target={"_blank"}
+            >
+              Litepaper
+            </a>
           </li>
           {/* <li>
             <a href="#howto">How to Play</a>
@@ -83,11 +134,15 @@ export default function Navbar({ changeTheme, currentTheme }) {
             <div className="accountInfo">
               {isWalletConnected ? (
                 <div className="walletDiv">
-                  <button className="wallet" onClick={accountInfo}>{accountId}</button>
+                  <button className="wallet" onClick={accountInfo}>
+                    {accountId}
+                  </button>
                   <MdLogout size={20} onClick={loginLogout} />
                 </div>
               ) : (
-                <button className="wallet" onClick={loginLogout}>Connect Near</button>
+                <button className="wallet" onClick={loginLogout}>
+                  Connect Near
+                </button>
               )}
             </div>
             {/* <button onClick={loginLogout} className="wallet">

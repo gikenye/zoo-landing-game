@@ -9,6 +9,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "@thirdweb-dev/react": "^4.9.4",
+    "@thirdweb-dev/wallets": "^2.5.39",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "big-number": "^2.0.0",
@@ -46,9 +48,9 @@
     "zustand": "^4.0.0-rc.1"
   },
   "scripts": {
-    "start": "concurrently \"node server/server.js\" \"react-scripts start\"",
-    "build": "concurrently \"node server/server.js\" \"react-scripts build\"",
-    "test": "concurrently \"node server/server.js\" \"react-scripts test\"",
+    "start": "concurrently \"node server/server.js\" \"react-app-rewired start\"",
+    "build": "concurrently \"node server/server.js\" \"react-app-rewired build\"",
+    "test": "concurrently \"node server/server.js\" \"react-app-rewired test\"",
     "eject": "concurrently \"node server/server.js\" \"react-scripts eject\""
   },
   "eslintConfig": {
@@ -68,5 +70,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "browserify-zlib": "^0.2.0",
+    "https-browserify": "^1.0.0",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0"
   }
 }
