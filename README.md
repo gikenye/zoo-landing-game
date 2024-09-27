@@ -20,6 +20,10 @@ Users will be able to support the zoos with donations. Information about these d
 
 ## Get Started
 
-md
-`npm install --legacy-peer-deps`
-`npm run start`
+1. Install dependencies:
+   ```bash
+   npm install --legacy-peer-deps
+   
+  ```bash
+  npm run start
+
